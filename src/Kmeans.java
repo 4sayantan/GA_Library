@@ -15,7 +15,7 @@ public class Kmeans {
     public static int numCenter;
     static float data[][];
     static float center[][];
-    int classLabel[];
+int classLabel[];
     public static void scanData(){
         data = new float[numData][numFeature];
         File f = new File("");//Set
