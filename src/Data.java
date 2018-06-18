@@ -11,9 +11,11 @@ import java.util.Scanner;
  *
  * @author Sayantan
  */
-class Files {
-
-    public static float[][] loadFile(String path) {
+class Data {
+    int numData;
+    int numFeatures;
+    float data[][];
+    Data(String path) {
         try {
             File f = new File(path);
             Scanner sc = new Scanner(f);
@@ -24,8 +26,10 @@ class Files {
             sc.close();
             sc = new Scanner(f);
             int m = sc.nextLine().split(",").length;
+            this.numData = n;
+            this.numFeatures = m;
             sc.close();
-            float data[][] = new float[n][m];
+            data = new float[n][m];
             sc = new Scanner(f);
             for(int i=0; i<n; i++){
                 String s[] = sc.nextLine().split(",");
@@ -37,10 +41,8 @@ class Files {
                     data[i][j] = Float.parseFloat(s[j]);
                 }
             }
-            return data;
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
         }
     }
 }
